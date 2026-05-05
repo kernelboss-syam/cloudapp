@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Lab - Operatore</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/emergencies.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main class="operator-main">
+    <h1>Nuova segnalazione</h1>
+    <p class="subtitle">Compila i campi e invia alla centrale operativa</p>
+
+    <div class="report-card">
+      <div class="geo-toggle">
+        <button id="geo-real" class="active" type="button">📡 GPS reale</button>
+        <button id="geo-simulated" type="button">🎯 Simulata</button>
+      </div>
+
+      <div class="geolocation-status">
+        <span class="geo-dot"></span>
+        <span id="geo-text">Acquisizione posizione…</span>
+        <span class="coords">—</span>
+      </div>
+
+      <form id="emergency-form">
+        <div class="form-group">
+          <label for="type">Tipologia di emergenza *</label>
+          <select id="type" class="form-control" required>
+            <option value="">Seleziona…</option>
+            <option value="incidente stradale">🚗 Incidente stradale</option>
+            <option value="incendio">🔥 Incendio</option>
+            <option value="terremoto">🌍 Terremoto</option>
+            <option value="alluvione">🌊 Alluvione</option>
+            <option value="emergenza sanitaria">🚑 Emergenza sanitaria</option>
+            <option value="black-out">⚡ Black-out</option>
+            <option value="aggressione">⚠️ Aggressione</option>
+            <option value="dispersione persona">🔍 Dispersione persona</option>
+            <option value="altro">📋 Altro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="priority">Priorità</label>
+          <select id="priority" class="form-control">
+            <option value="bassa">🟢 Bassa</option>
+            <option value="media" selected>🟡 Media</option>
+            <option value="alta">🟠 Alta</option>
+            <option value="critica">🔴 Critica</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Descrizione</label>
+          <textarea id="description" class="form-control" placeholder="Descrivi brevemente la situazione…" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-danger btn-block">Invia segnalazione</button>
+      </form>
+    </div>
+
+    <div class="my-reports">
+      <h2>Le mie segnalazioni</h2>
+      <div id="my-reports-list"></div>
+    </div>
+  </main>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/operator.js"></script>
+</body>
+</html>

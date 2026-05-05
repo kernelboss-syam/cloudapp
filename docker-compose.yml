@@ -1,0 +1,69 @@
+# Docker Compose - usato sia in locale che sulle istanze EC2 lanciate dall'ASG
+# In produzione AWS il database "db" NON viene usato: ci si connette direttamente a RDS
+# settando le variabili DB_HOST/DB_USER/DB_PASSWORD nell'env
+
+services:
+  # ============= POSTGRESQL LOCALE (solo per sviluppo) =============
+  # Su AWS, commentare questo blocco e usare RDS via DB_HOST=<rds-endpoint>
+  db:
+    image: postgres:16-alpine
+    container_name: cloudproject-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Vmware1!
+      POSTGRES_DB: cloudproject
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d cloudproject"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    profiles: [local]   # avvia solo con: docker compose --profile local up
+
+  # ============= BACKEND APP =============
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: cloudproject-backend
+    restart: unless-stopped
+    environment:
+      PORT: 3000
+      # Default puntano a RDS - sovrascrivibili da env esterno
+      DB_HOST: ${DB_HOST:-db}
+      DB_PORT: ${DB_PORT:-5432}
+      DB_NAME: ${DB_NAME:-cloudproject}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-Vmware1!}
+      DB_SSL: ${DB_SSL:-false}      # mettere "true" su RDS
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production-use-secrets-manager}
+      INSTANCE_ID: ${INSTANCE_ID:-local}
+    volumes:
+      # Monta i file frontend così sono serviti dall'app
+      - ./frontend:/app/../frontend:ro
+    depends_on:
+      db:
+        condition: service_healthy
+        required: false
+    expose:
+      - "3000"
+
+  # ============= NGINX REVERSE PROXY =============
+  # Davanti al backend per terminare HTTP, gestire WebSocket e abilitare cache statica
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: cloudproject-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

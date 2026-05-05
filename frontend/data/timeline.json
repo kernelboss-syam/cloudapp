@@ -1,0 +1,267 @@
+{
+  "course_name": "ITS Cloud & Cybersecurity",
+  "start_date": "2024-09-01",
+  "end_date": "2026-12-31",
+  "months": [
+    {
+      "date": "2024-09",
+      "title": "Introduzione e Fondamenti",
+      "subjects": [
+        "Presentazione del corso",
+        "Sistemi operativi (Linux base)",
+        "Reti di calcolatori - Modello OSI/TCP-IP",
+        "Comandi shell e bash scripting"
+      ]
+    },
+    {
+      "date": "2024-10",
+      "title": "Networking",
+      "subjects": [
+        "Indirizzamento IPv4 e subnetting",
+        "Routing e switching",
+        "DNS, DHCP, NAT",
+        "Wireshark - analisi pacchetti"
+      ]
+    },
+    {
+      "date": "2024-11",
+      "title": "Programmazione e Database",
+      "subjects": [
+        "Python - sintassi e OOP",
+        "Database relazionali",
+        "SQL e PostgreSQL",
+        "Pygame - sviluppo del progetto Battaglia Navale"
+      ]
+    },
+    {
+      "date": "2024-12",
+      "title": "Virtualizzazione",
+      "subjects": [
+        "Concetti di hypervisor",
+        "VMware vSphere",
+        "Configurazione VM",
+        "Snapshot e backup"
+      ]
+    },
+    {
+      "date": "2025-01",
+      "title": "Container",
+      "subjects": [
+        "Docker - immagini e container",
+        "Dockerfile e build",
+        "Docker Compose",
+        "Container registry"
+      ]
+    },
+    {
+      "date": "2025-02",
+      "title": "Cybersecurity Fondamentali",
+      "subjects": [
+        "Crittografia simmetrica e asimmetrica",
+        "Certificati X.509 e PKI",
+        "Firewall e segmentazione",
+        "OWASP Top 10"
+      ]
+    },
+    {
+      "date": "2025-03",
+      "title": "Sistemi di Sorveglianza IP",
+      "subjects": [
+        "Telecamere IP - protocolli ONVIF/RTSP",
+        "TKH Skilleye - configurazione",
+        "NVR e storage video",
+        "Conformità GDPR e privacy italiana"
+      ]
+    },
+    {
+      "date": "2025-04",
+      "title": "AWS - Primi Passi",
+      "subjects": [
+        "Cos'è il cloud computing",
+        "AWS Console e CLI",
+        "EC2 - istanze e AMI",
+        "S3 - object storage"
+      ]
+    },
+    {
+      "date": "2025-05",
+      "title": "AWS - Networking",
+      "subjects": [
+        "VPC, subnet e route table",
+        "Security Group e NACL",
+        "Internet Gateway e NAT",
+        "Application Load Balancer"
+      ]
+    },
+    {
+      "date": "2025-06",
+      "title": "AWS - Database e Storage",
+      "subjects": [
+        "RDS PostgreSQL/MySQL",
+        "DynamoDB - NoSQL",
+        "EBS volumi",
+        "Backup e snapshot"
+      ]
+    },
+    {
+      "date": "2025-07",
+      "title": "AWS - Scalabilità",
+      "subjects": [
+        "Auto Scaling Group",
+        "Launch template e AMI custom",
+        "CloudWatch metriche e allarmi",
+        "Stress test con Locust"
+      ]
+    },
+    {
+      "date": "2025-08",
+      "title": "Pausa estiva",
+      "subjects": [
+        "Studio individuale",
+        "Approfondimenti personali"
+      ]
+    },
+    {
+      "date": "2025-09",
+      "title": "DevOps e CI/CD",
+      "subjects": [
+        "Git e GitHub avanzato",
+        "GitHub Actions",
+        "Pipeline CI/CD",
+        "Infrastructure as Code (Terraform)"
+      ]
+    },
+    {
+      "date": "2025-10",
+      "title": "Monitoraggio e Logging",
+      "subjects": [
+        "CloudWatch Logs",
+        "Prometheus e Grafana",
+        "Alerting e on-call",
+        "Tracing distribuito"
+      ]
+    },
+    {
+      "date": "2025-11",
+      "title": "Sicurezza Cloud",
+      "subjects": [
+        "IAM - utenti, ruoli, policy",
+        "Secrets Manager / Parameter Store",
+        "AWS WAF",
+        "Audit con CloudTrail"
+      ]
+    },
+    {
+      "date": "2025-12",
+      "title": "Progetto Cloud AWS",
+      "subjects": [
+        "Sviluppo webapp containerizzata",
+        "Deploy su EC2 con ASG",
+        "Integrazione RDS e ALB",
+        "Stress test e ottimizzazioni"
+      ]
+    },
+    {
+      "date": "2026-01",
+      "title": "Kubernetes",
+      "subjects": [
+        "Concetti base K8s",
+        "Pod, Deployment, Service",
+        "EKS - managed Kubernetes",
+        "Helm chart"
+      ]
+    },
+    {
+      "date": "2026-02",
+      "title": "Serverless",
+      "subjects": [
+        "AWS Lambda",
+        "API Gateway",
+        "EventBridge",
+        "Step Functions"
+      ]
+    },
+    {
+      "date": "2026-03",
+      "title": "Stage in azienda",
+      "subjects": [
+        "Inserimento in team di lavoro",
+        "Progetti reali su infrastrutture cloud",
+        "Soft skill e gestione cliente"
+      ]
+    },
+    {
+      "date": "2026-04",
+      "title": "Stage in azienda",
+      "subjects": [
+        "Continuazione attività di stage",
+        "Approfondimenti tecnici on-the-job"
+      ]
+    },
+    {
+      "date": "2026-05",
+      "title": "Stage in azienda",
+      "subjects": [
+        "Continuazione attività di stage",
+        "Inizio preparazione progetto finale"
+      ]
+    },
+    {
+      "date": "2026-06",
+      "title": "Progetto Finale",
+      "subjects": [
+        "Definizione tema progetto finale",
+        "Sviluppo documentazione tecnica",
+        "Implementazione soluzione"
+      ]
+    },
+    {
+      "date": "2026-07",
+      "title": "Pausa estiva",
+      "subjects": [
+        "Sviluppo progetto finale individuale"
+      ]
+    },
+    {
+      "date": "2026-08",
+      "title": "Pausa estiva",
+      "subjects": [
+        "Sviluppo progetto finale individuale"
+      ]
+    },
+    {
+      "date": "2026-09",
+      "title": "Preparazione esame",
+      "subjects": [
+        "Ripasso materie",
+        "Simulazioni esame",
+        "Revisione progetto finale"
+      ]
+    },
+    {
+      "date": "2026-10",
+      "title": "Preparazione esame",
+      "subjects": [
+        "Mock interview tecniche",
+        "Studio approfondito materie cloud"
+      ]
+    },
+    {
+      "date": "2026-11",
+      "title": "Esame finale",
+      "subjects": [
+        "Discussione progetto finale",
+        "Esami orali",
+        "Conseguimento diploma ITS"
+      ]
+    },
+    {
+      "date": "2026-12",
+      "title": "Conclusione",
+      "subjects": [
+        "Cerimonia di consegna diplomi",
+        "Networking e career day"
+      ]
+    }
+  ]
+}

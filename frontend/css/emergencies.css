@@ -1,0 +1,387 @@
+/* ============= EMERGENCY PAGES ============= */
+
+/* --- OPERATORE (mobile) --- */
+.operator-main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px 16px 80px;
+}
+
+.operator-main h1 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.operator-main .subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.report-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-1);
+  margin-bottom: 24px;
+}
+
+.geolocation-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg);
+  border-radius: var(--radius);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.geo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  flex-shrink: 0;
+}
+.geo-dot.active { background: var(--success); animation: pulse 2s infinite; }
+.geo-dot.error  { background: var(--accent); }
+
+.coords {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-left: auto;
+}
+
+.geo-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.geo-toggle button {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius);
+  font-size: 13px;
+  color: var(--text-secondary);
+  transition: all 0.15s;
+}
+
+.geo-toggle button.active {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary-dark);
+  font-weight: 500;
+}
+
+/* Lista segnalazioni inviate */
+.my-reports h2 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.report-item {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-1);
+  border-left: 4px solid var(--primary);
+}
+
+.report-item.status-aperta     { border-left-color: var(--accent); }
+.report-item.status-in_carico  { border-left-color: var(--primary); }
+.report-item.status-chiusa     { border-left-color: var(--success); }
+.report-item.status-annullata  { border-left-color: var(--text-secondary); opacity: 0.7; }
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.report-type {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.status-badge.aperta     { background: #fce8e6; color: var(--accent-dark); }
+.status-badge.in_carico  { background: var(--primary-light); color: var(--primary-dark); }
+.status-badge.chiusa     { background: #e6f4ea; color: #1e8e3e; }
+.status-badge.annullata  { background: #f1f3f4; color: var(--text-secondary); }
+
+.report-meta {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+.report-description {
+  font-size: 14px;
+  margin-top: 6px;
+  color: var(--text-primary);
+}
+
+/* --- DASHBOARD CENTRALE --- */
+.dashboard-main {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--primary);
+}
+.stat-card.danger::before  { background: var(--accent); }
+.stat-card.warning::before { background: var(--warning); }
+.stat-card.success::before { background: var(--success); }
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.stat-detail {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.dashboard-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.panel {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-header h2 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.panel-body {
+  padding: 20px;
+}
+
+.panel-body.no-padding { padding: 0; }
+
+#map {
+  width: 100%;
+  height: 500px;
+}
+
+/* Tabella segnalazioni */
+.emergencies-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.emergencies-table th,
+.emergencies-table td {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.emergencies-table th {
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.emergencies-table tbody tr {
+  transition: background 0.1s;
+}
+.emergencies-table tbody tr:hover {
+  background: var(--bg);
+}
+
+.emergencies-table .actions {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-mini {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-primary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-mini:hover { background: var(--bg); }
+.btn-mini.primary { background: var(--primary); color: white; border-color: var(--primary); }
+.btn-mini.success { background: var(--success); color: white; border-color: var(--success); }
+.btn-mini.danger  { background: var(--accent); color: white; border-color: var(--accent); }
+
+/* Bar chart by type */
+.chart-bar {
+  margin-bottom: 12px;
+}
+.chart-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 4px;
+  text-transform: capitalize;
+}
+.chart-bar-track {
+  height: 8px;
+  background: var(--bg);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.chart-bar-fill {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.5s ease-out;
+}
+
+/* Live indicator */
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--success);
+  font-weight: 500;
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--success);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+/* Map markers leaflet custom */
+.custom-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+}
+.custom-marker.aperta    { background: var(--accent); }
+.custom-marker.in_carico { background: var(--primary); }
+
+/* Toast notifications */
+.toast-container {
+  position: fixed;
+  top: 80px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.toast {
+  background: var(--text-primary);
+  color: white;
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-2);
+  font-size: 14px;
+  max-width: 360px;
+  animation: slideInRight 0.3s ease-out;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.toast.success { background: #1e8e3e; }
+.toast.error   { background: var(--accent-dark); }
+.toast.info    { background: var(--primary-dark); }
+
+@keyframes slideInRight {
+  from { transform: translateX(120%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-row  { grid-template-columns: 1fr; }
+  #map { height: 360px; }
+}
+
+@media (max-width: 600px) {
+  .dashboard-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-value { font-size: 28px; }
+  .dashboard-main { padding: 16px; }
+  .emergencies-table { font-size: 12px; }
+  .emergencies-table th, .emergencies-table td { padding: 8px 10px; }
+}

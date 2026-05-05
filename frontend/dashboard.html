@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Lab - Dashboard Centrale</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/emergencies.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main class="dashboard-main">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
+      <div>
+        <h1 style="font-size:24px; font-weight:400;">Centrale operativa</h1>
+        <p style="color:var(--text-secondary); font-size:14px;">Monitoraggio in tempo reale delle segnalazioni</p>
+      </div>
+      <div class="live-indicator" id="ws-status">
+        <span class="live-dot"></span><span>Connessione…</span>
+      </div>
+    </div>
+
+    <!-- KPI cards -->
+    <div class="dashboard-grid">
+      <div class="stat-card danger">
+        <div class="stat-label">Aperte</div>
+        <div class="stat-value" id="stat-open">—</div>
+        <div class="stat-detail">In attesa di presa in carico</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">In carico</div>
+        <div class="stat-value" id="stat-in-progress">—</div>
+        <div class="stat-detail">Squadre in azione</div>
+      </div>
+      <div class="stat-card success">
+        <div class="stat-label">Chiuse</div>
+        <div class="stat-value" id="stat-closed">—</div>
+        <div class="stat-detail">Totale risolte</div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-label">Durata media</div>
+        <div class="stat-value" id="stat-avg-duration">—</div>
+        <div class="stat-detail">Da apertura a chiusura</div>
+      </div>
+    </div>
+
+    <!-- Mappa + grafici -->
+    <div class="dashboard-row">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>🗺️ Mappa segnalazioni attive</h2>
+          <div style="display:flex; gap:12px; font-size:12px;">
+            <span style="display:flex; align-items:center; gap:4px;"><span style="width:10px;height:10px;background:var(--accent);border-radius:50%"></span>Aperta</span>
+            <span style="display:flex; align-items:center; gap:4px;"><span style="width:10px;height:10px;background:var(--primary);border-radius:50%"></span>In carico</span>
+          </div>
+        </div>
+        <div class="panel-body no-padding">
+          <div id="map"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>📊 Per tipologia</h2>
+        </div>
+        <div class="panel-body">
+          <div id="types-chart"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabella segnalazioni -->
+    <div class="panel">
+      <div class="panel-header">
+        <h2>📋 Segnalazioni recenti</h2>
+        <button class="btn-mini" onclick="loadAll()">↻ Aggiorna</button>
+      </div>
+      <div class="panel-body no-padding">
+        <table class="emergencies-table" id="emergencies-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tipo</th>
+              <th>Stato</th>
+              <th>Operatore</th>
+              <th>Quando</th>
+              <th>Azioni</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
